@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%s;
+  cursor: url("../img/baguette.png"), auto;
+  background-color: #2f6db8;
+  z-index: 20;
+}
+
+/* DIV Boats */
+#container1 {
+  width: 100%;
+  height: 100%;
+}
+@media all and (max-width: 600px) {
+  .name {
+    left: 50%;
+    top: 45%;
+    width: 50%;
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+  }
+  #cloud2 {
+    z-index: 1;
+    width: 20%;
+    position: absolute;
+    top: 20%;
+  }
+  #eclair {
+    z-index: 0;
+    width: 3%;
+    position: absolute;
+    top: 43%;
+    left: 48%;
+    animation-delay: 10s;
+    animation: orage 2s infinite;
+
+    -webkit-animation: orage 10s infinite;
+  }
+}
+
+@media all and (min-width: 601px) and (max-width: 2000px) {
+  .name {
+    width: 20%;
+    top: 20%;
+    left: 50%;
+
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+  }
+  #cloud2 {
+    z-index: 1;
+    width: 10%;
+    position: absolute;
+    top: 10%;
+  }
+  #eclair {
+    z-index: 0;
+    width: 1%;
+    position: absolute;
+    top: 22%;
+    left: 45%;
+    animation-delay: 10s;
+    animation: orage 2s infinite;
+
+    -webkit-animation: orage 10s infinite;
+  }
+}
+
+.containerGame {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 89%;
+
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+.game {
+  width: 20%;
+  position: absolute;
+}
+#harryballaisActif {
+  animation: roll 3s linear infinite;
+  width: 10%;
+  position: absolute;
+  left: 20%;
+  -webkit-animation: roll 3s linear infinite;
+}
+#harryballais {
+  width: 10%;
+  position: absolute;
+  left: 20%;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+}
+.resume {
+  width: 25%;
+  position: absolute;
+  right: 10%;
+}
+
+#boats {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+
+  margin: 0 auto;
+}
+
+/* Full Boat*/
+#bateau {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  bottom: 40%;
+  animation: animateboat 6s ease-in-out infinite;
+  -webkit-animation: animateboat 6s ease-in-out infinite;
+}
+
+/* ciel */
+#sky {
+  position: absolute;
+  width: 100%;
+}
+
+#moon {
+  width: 40%;
+}
+#cloud {
+  width: 30%;
+  right: 60%;
+  top: 50%;
+  position: absolute;
+}
+#cloud1 {
+  width: 10%;
+  position: absolute;
+  top: 50%;
+}
+
+#cloud3 {
+  z-index: 1;
+  width: 25%;
+  position: absolute;
+  top: 15%;
+  left: 70%;
+  animation: cloudmoving 30s ease-in-out infinite;
+  -webkit-animation: cloudmoving 30s ease-in-out infinite;
+}
+
+#castle {
+  z-index: 0;
+  width: 90%;
+  position: fixed;
+  left: 50%;
+  bottom: 20%;
+}
+
+/* WATER */
+
+#water {
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(#49a5bf, #2f6db8);
+  position: absolute;
+  bottom: 19%;
+  transition: all 5s;
+  animation: animate 4s ease-in-out infinite;
+  -webkit-animation: animate 4s ease-in-out infinite;
+  -webkit-transition: all 5s;
+  -moz-transition: all 5s;
+  -ms-transition: all 5s;
+  -o-transition: all 5s;
+}
+#span1 {
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgb(186, 216, 228),
+    rgba(15, 146, 221, 0)
+  );
+  height: 30%;
+  position: absolute;
+  bottom: 30%;
+}
+
+/* Animation */
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      13% 46%,
+      29% 50%,
+      41% 56%,
+      51% 64%,
+      65% 73%,
+      79% 74%,
+      90% 71%,
+      100% 64%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0 73%,
+      15% 69%,
+      25% 68%,
+      38% 70%,
+      50% 73%,
+      62% 70%,
+      75% 61%,
+      84% 53%,
+      100% 48%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+@keyframes animateboat {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+  }
+  50% {
+    transition: all 1s;
+    transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+  }
+}
+
+@keyframes cloudmoving {
+  0%,
+  100% {
+  }
+  50% {
+    left: 60%;
+  }
+}
+
+@keyframes orage {
+  0% {
+    opacity: 0%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  2% {
+    opacity: 100%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  4% {
+    opacity: 0%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  80% {
+    opacity: 0%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  82% {
+    opacity: 100%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  84% {
+    opacity: 0%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+  100% {
+    opacity: 0%;
+    -webkit-transition: 80s;
+    -moz-transition: 80s;
+    -ms-transition: 80s;
+    -o-transition: 80s;
+  }
+}
