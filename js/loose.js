@@ -4,7 +4,7 @@ audio.play();
 
 
 this.sound = new Audio();
-this.sound.src = '../img/harrymomentum.mp3';
+this.sound.src = 'https://raw.githubusercontent.com/Roadgreen/Melvin.devJS/main/img/harrymomentum.mp3';
 this.sound.load();
 this.sound.play()
   .then(() => {
