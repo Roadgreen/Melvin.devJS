@@ -56,8 +56,16 @@ let harry = {
     this.harrydown = "harrydowntouched";
     harry.getElement.className = "harrytouched";
     if (player.life != "0") player.life = player.life - 1;
-    let audio = new Audio("../song/cognard.mp3");
-    audio.play();
+    this.sound = new Audio();
+    this.sound.src = 'https://raw.githubusercontent.com/Roadgreen/Melvin.devJS/main/song/cognard.mp3';
+    this.sound.load();
+    this.sound.play()
+      .then(() => {
+        // Audio is playing.
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
     console.log(player.life);
     // ici on retarde le moment ou harry revient à son état initial
@@ -205,8 +213,18 @@ let vifdor = {
       }, 5000);
     } else {
       player.vif = player.vif + 1;
-      let audio = new Audio("../song/clochevif.mp3");
-      audio.play();
+
+      this.sound = new Audio();
+this.sound.src = 'https://raw.githubusercontent.com/Roadgreen/Melvin.devJS/main/song/clochevif.mp3';
+this.sound.load();
+this.sound.play()
+  .then(() => {
+    // Audio is playing.
+  })
+  .catch(error => {
+    console.log(error);
+  });
+      
       setTimeout(() => {
         this.vifCollision();
       }, 600);
