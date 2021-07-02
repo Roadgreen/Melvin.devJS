@@ -83,14 +83,15 @@ body {
   width: 20%;
   position: absolute;
 }
-#harryballaisActif {
-  animation: roll 3s linear infinite;
+.harryballaisActif {
+
   width: 10%;
   position: absolute;
   left: 20%;
+  animation: roll 3s linear infinite;
   -webkit-animation: roll 3s linear infinite;
 }
-#harryballais {
+.harryballais {
   width: 10%;
   position: absolute;
   left: 20%;

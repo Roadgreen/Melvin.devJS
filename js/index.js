@@ -1,6 +1,11 @@
 var game = document.getElementById('gameLink');
+var harry = document.getElementById('harryballais');
 
-game.addEventListener("mouseover", function( e ) {
+game.addEventListener("mouseover", function() {
     // on met l'accent sur la cible de mouseover
-    e.target.className = "harryballaisActif"; 
+    harry.className = "harryballaisActif"; 
+});
+
+game.addEventListener("mouseout", function(){
+    harry.className = "harryballais";
 });

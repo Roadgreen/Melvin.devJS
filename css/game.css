@@ -1,0 +1,463 @@
+body {
+   margin-left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color:skyblue;
+}
+
+@font-face {
+	font-family: "harry";
+	src: url('../img/HARRYP__.TTF');
+}
+/* Gestion de Harry sur son balet */ 
+
+.harry {
+    z-index: 3;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 40%;
+    left: 10%;
+    background-image: url("../img/harryballais1.svg");
+    background-repeat: no-repeat;
+    
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+}
+
+
+
+.harrytouched {
+    z-index: 10;
+    width: 250px;
+    height: 250px;
+    
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    background-repeat: no-repeat;
+    animation: touched 2s linear  infinite;
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+    -webkit-animation: touched 2s linear  infinite;
+}
+
+.move {
+    margin-bottom: 0%;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    animation: vol 2s infinite;
+    -webkit-animation: vol 2s infinite;
+}
+
+.harryup {
+    z-index: 3;
+    width: 90px;
+    height: 100px;
+    position: absolute;
+    bottom: 70%;
+    left: 10%;
+    background-image: url("../img/harryballaisup.svg");
+    background-repeat: no-repeat;
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+}
+.harryuptouched{
+    z-index: 10;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    bottom: 70%;
+    left: 10%;
+    background-image: url('../img/harryballaisfall0.svg');
+    background-repeat: no-repeat;
+    
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+}
+
+.harrydowntouched {
+    z-index: 10;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    background-image: url('../img/harryballaisfall0.svg');
+    background-repeat: no-repeat;
+    
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+}
+
+.harrydown {
+    z-index: 3;
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    background-image: url("../img/harryballaisdown.svg");
+    background-repeat: no-repeat;
+    transition: bottom 2s;
+    -webkit-transition: bottom 2s;
+    -moz-transition: bottom 2s;
+    -ms-transition: bottom 2s;
+    -o-transition: bottom 2s;
+}
+
+@keyframes vol{
+0%,100% {
+    bottom: 2%;
+    transition: all 2s;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -ms-transition: all 2s;
+    -o-transition: all 2s;
+} 50% {
+    bottom:0%;
+    transition: all 2s;
+   
+}
+}
+
+@keyframes touched{
+    0%{
+background-image: url('../img/harryballaisfall0.svg');
+    }25%{
+        background-image: url('../img/harryballaisfall1.svg');
+    }50%{
+        background-image: url('../img/harryballaisfall2.svg');
+    }75%{
+        background-image: url('../img/harryballaisfall0.svg');
+    }100%{
+        background-image: url('../img/harryballaisfall1.svg');
+    }
+}
+
+/* Defilement du stade et de l'arrière plan */
+
+.stade {
+    position: fixed;
+    z-index: 1;
+    background-image: url('../img/stade.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 800px;
+    bottom: 0px;
+    margin-left: 0px;
+    animation: stade 6s linear infinite;
+    -webkit-animation: stade 6s linear infinite;
+}
+
+@keyframes stade{
+   from{
+       background-position: 1950px;
+   }to{
+       background-position: 0px;
+   }
+}
+
+.nuage {
+    position: fixed;
+    z-index: 1;
+    background-image: url('../img/nuage.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 1000px;
+    bottom: 0px;
+    margin-left: 0px;
+    animation: nuage 5s linear infinite;
+    -webkit-animation: nuage 5s linear infinite;
+}
+@keyframes nuage{
+    from{
+        background-position: 2000px;
+    }to{
+        background-position: 0px;
+    }
+ }
+
+.fond {
+    position: fixed;
+    z-index: 0;
+    background-image: url('../img/fondquidditch.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 700px;
+    opacity: 0.5;
+    bottom: 0px;
+    margin-left: 0px;
+    animation: fond 6s linear infinite;
+    -webkit-animation: fond 6s linear infinite;
+}
+@keyframes fond{
+    from{
+        background-position: 3000px;
+    }to{
+        background-position: 0px;
+    }
+ }
+
+ .malefoy {
+    position: fixed;
+    z-index: 1;
+    background-image: url('../img/malefoy.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 800px;
+    bottom: 0px;
+    margin-left: 0px;
+    animation: malefoy
+     6s linear infinite;
+    -webkit-animation: malefoy 6s linear infinite;
+}
+
+ @keyframes malefoy{
+    from{
+        background-position: 2500px;
+    }to{
+        background-position: 0px;
+    }
+ }
+
+ /* cognards */
+
+
+
+.cognardspace {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 3em;
+
+}
+
+.cognardInvisible {
+   position: absolute;
+    visibility: hidden;
+    right: 550em;
+    
+}
+
+.cognard {
+    z-index: 5;
+    width: 1.9em;
+    position: absolute;
+    right: 0em;
+    transition: bottom 3s ease-in-out;
+    visibility: hidden;
+    animation:cognard 3s linear infinite;
+    -webkit-animation:cognard 3s linear infinite;
+    -webkit-transition: bottom 3s ease-in-out;
+    -moz-transition: bottom 3s ease-in-out;
+    -ms-transition: bottom 3s ease-in-out;
+    -o-transition: bottom 3s ease-in-out;
+}
+
+@keyframes cognard{
+    0% {
+        right: 0em;
+        visibility: visible;
+       
+} 50% {
+       
+} 100% {
+    right: 150em;
+}
+}
+
+.point {
+    z-index: 4;
+    width: 200px;
+    height: 100px;
+    background-image: url('../img/tableaudepoint.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 2em;
+}
+.epoint {
+    z-index: 5;
+    font-family: "harry";
+    position: absolute;
+    right: 2em;
+    top: 0.6em;
+    color: #d8d43a;
+}
+.life {
+    font-family: "harry";
+    position: absolute;
+    right: 5.7em;
+    top: 0.6em;
+    color: #d8d43a;
+}
+
+.vifdorspace {
+    z-index: 9;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 3em;
+}
+.vifdor {
+    z-index: 2;
+    width: 80px;
+    height: 40px;
+    right: -10em;
+    position: absolute;
+    transition: bottom 3s ease-in;
+    animation: vifdor 6s linear infinite;
+    -webkit-animation: vifdor 6s linear infinite;
+    -webkit-transition: bottom 3s ease-in;
+    -moz-transition: bottom 3s ease-in;
+    -ms-transition: bottom 3s ease-in;
+    -o-transition: bottom 3s ease-in;
+}
+
+
+
+@keyframes vifdor{
+    0% {
+        right: 0em;
+        visibility: visible;
+        
+        
+       
+} 50% {
+      
+} 100% {
+    right: 150em;
+    
+   
+}
+}
+
+.macgoconsigne {
+    z-index: 20;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/macgoconsigne1.svg');
+    background-repeat: no-repeat;
+    animation: speak 2s linear infinite;
+    -webkit-animation: speak 2s linear infinite;
+}
+.bulle {
+    z-index: 21;
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    left: 50%;
+    top: 10%;
+    background-image: url('../img/consignebulle.svg');
+    background-repeat: no-repeat;
+}
+
+@media all and (min-width: 1120px) and (max-width: 1800px) {
+    .aStart {
+        position: relative;
+        left: 63%;
+        right: 50%;
+        width: 100%;
+        height: 100%;
+        top: 25em;
+        cursor: pointer;
+      }
+      .start {
+          width: 20%;
+          cursor: pointer;
+        
+      }
+      
+}
+@media all  and (min-width: 1801px) {
+    .aStart {
+        position: relative;
+        left: 63%;
+        right: 50%;
+        width: 100%;
+        height: 100%;
+        top: 25em;
+        cursor: pointer;
+      }
+      .start {
+          width: 10%;
+          cursor: pointer;
+        
+      }
+      
+}
+@media all  and (max-width: 1119px) {
+    .aStart {
+        position: relative;
+        left: 63%;
+        right: 50%;
+        width: 100%;
+        height: 100%;
+        top: 16em;
+        cursor: pointer;
+      }
+      .start {
+          width: 20%;
+          cursor: pointer;
+        
+      }
+      
+}
+
+@keyframes speak {
+    0%{
+        background-image: url("../img/macgoconsigne1.svg");
+    } 33% {
+        background-image: url("../img/macgoconsigne2.svg");
+    } 66% {
+        background-image: url("../img/macgoconsigne3.svg");
+    } 100% {
+        background-image: url("../img/macgoconsigne1.svg");
+    }
+}
+
+.lvl2 {
+    z-index: 3;
+    position: absolute;
+    height: 20em;
+    width: 30em;
+    background-image: url('../img/lvl2.png');
+    background-repeat: no-repeat;
+    top: 70%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation: size 3s linear;
+    -webkit-animation: size 3s linear;
+  
+}
+
+@keyframes size {
+    0%,100%{
+        opacity: 0;
+        
+    } 50% {
+       opacity: 1;
+       
+    }
+}
