@@ -48,7 +48,7 @@ let harry = {
    * Collision
    *
    */
-
+// Si Harry touché changement de css
   harrytouched: function () {
     console.log("touched");
     this.harrystraight = "harrytouched";
@@ -60,6 +60,7 @@ let harry = {
     audio.play();
     
     console.log(player.life);
+     // ici on retarde le moment ou harry revient à son état initial
     setTimeout(() => {
       this.harrygood();
     },5000);
@@ -67,7 +68,7 @@ let harry = {
 
     
   },
-
+ // ici harry revient à son état initial
   harrygood: function () {
     console.log("plustoucher");
     this.harrystraight = "harry";
@@ -75,6 +76,8 @@ let harry = {
     this.harrydown = "harrydown";
     harry.getElement.className = "harry";
   },
+
+   // ici on s'occupe de la collision en regardant toutes les (second) si harry touche un cognards
 
   harryCollision: function (second) {
     let xyArray = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -109,6 +112,7 @@ let harry = {
         ) {
           
         } else {
+          // on arrête l'interval le temps d'animer harry
           clearInterval(interval);
           this.isTouched();
           
@@ -119,6 +123,7 @@ let harry = {
     }, second);
   },
 
+  // si harry est touché on relance la collision dans 6 secondes
   isTouched: function () {
     this.harrytouched();
     
@@ -181,7 +186,9 @@ let player = {
     }
 };
 
-
+//
+// VIF DOR
+//
 
 
 let vifdor = {
@@ -193,7 +200,7 @@ let vifdor = {
     },1500);
     
   },
-
+ // fonction des vif d'or touché - Si harry touché, ne peut prendre de point
   vifdorTouched: function(){
    
       if(harry.harrystraight == 'harrytouched' || harry.harrydown == 'harrydowntouched' || harry.harryup == 'harryuptouched') {
@@ -215,6 +222,8 @@ let vifdor = {
 
    
   },
+
+   // toutes les 300 milliseconde on vérifie si vif d'or touché
 
   vifCollision: function(){
     vifInterval = setInterval(() => {
@@ -248,7 +257,7 @@ let vifdor = {
 };
 
 
-
+//gestion des niveau et de la fin de partie
 let script = {
 
 setNextLevel: function() {
@@ -301,5 +310,5 @@ start.addEventListener('click', () => {
 
 
 });
-// ici on gère les différentes class css pour le balais
+
 

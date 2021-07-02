@@ -13,7 +13,6 @@ let harry = {
   harryup: "harryup",
   harrydown: "harrydown",
   harrystraight: "harry",
-  
 
   // Si la fleche bas du clavier est activé on change css
 
@@ -49,25 +48,25 @@ let harry = {
    *
    */
 
+  // Si Harry touché changement de css
   harrytouched: function () {
     console.log("touched");
     this.harrystraight = "harrytouched";
     this.harryup = "harryuptouched";
     this.harrydown = "harrydowntouched";
     harry.getElement.className = "harrytouched";
-    if(player.life != '0')player.life = player.life - 1;;
-    let audio = new Audio('../song/cognard.mp3');
+    if (player.life != "0") player.life = player.life - 1;
+    let audio = new Audio("../song/cognard.mp3");
     audio.play();
-    
+
     console.log(player.life);
+    // ici on retarde le moment ou harry revient à son état initial
     setTimeout(() => {
       this.harrygood();
-    },5000);
-   
-
-    
+    }, 5000);
   },
 
+  // ici harry revient à son état initial
   harrygood: function () {
     console.log("plustoucher");
     this.harrystraight = "harry";
@@ -75,6 +74,8 @@ let harry = {
     this.harrydown = "harrydown";
     harry.getElement.className = "harry";
   },
+
+  // ici on s'occupe de la collision en regardant toutes les (second) si harry touche un cognards
 
   harryCollision: function (second) {
     let xyArray = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -107,28 +108,26 @@ let harry = {
           xyArray[5] > xyArray[1] + xyArray[3] ||
           xyArray[5] + xyArray[7] < xyArray[1]
         ) {
-          
         } else {
+          // on arrête l'interval le temps d'animer harry
           clearInterval(interval);
           this.isTouched();
-          
+
           console.log("toucher");
-        
         }
       }
     }, second);
   },
 
+  // si harry est touché on relance la collision dans 6 secondes
   isTouched: function () {
     this.harrytouched();
-    
-    
+
     setTimeout(() => {
       this.harryCollision(150);
     }, 6000);
-},
+  },
 };
-
 
 //*
 //* Les Cognard
@@ -146,7 +145,10 @@ let cognardObject = {
   minMaxRandom: function (min, max) {
     return parseInt(Math.random() * (max - min) + min);
   },
-cognardLevel: 5, 
+  //cognards level
+  cognardLevel: 5,
+
+  //function d'apparition aléatoire des cognards
   cognardAppear: function (time) {
     setInterval(() => {
       cognardSelect = this.minMaxRandom(0, this.cognardLevel);
@@ -155,8 +157,6 @@ cognardLevel: 5,
     }, time);
   },
 };
-
-
 
 /**
  *
@@ -168,134 +168,121 @@ let player = {
   life: 6,
   vif: 0,
   lifeID: document.getElementById("life"),
-  lifeView: function(){
+  lifeView: function () {
     setInterval(() => {
       this.lifeID.innerHTML = this.life;
     }, 500);
-    },
-    pointID: document.getElementById('epoint'),
-    pointView: function(){
-      setInterval(() => {
-        this.pointID.innerHTML = this.vif;
-      }, 500);
-    }
+  },
+  pointID: document.getElementById("epoint"),
+  pointView: function () {
+    setInterval(() => {
+      this.pointID.innerHTML = this.vif;
+    }, 500);
+  },
 };
 
-
-
+//
+// VIF DOR
+//
 
 let vifdor = {
-
-  vifdorElement: document.getElementById('vifdor'),
-  vifbottom: function(){
+  vifdorElement: document.getElementById("vifdor"),
+  vifbottom: function () {
     setInterval(() => {
       this.vifdorElement.style.bottom = `${cognardObject.bottomRandom(100)}%`;
-    },1500);
-    
+    }, 1500);
   },
 
-  vifdorTouched: function(){
-   
-      if(harry.harrystraight == 'harrytouched' || harry.harrydown == 'harrydowntouched' || harry.harryup == 'harryuptouched') {
-        setTimeout(() => {
-          this.vifCollision();
-        }, 5000);
-      } else {
-        player.vif = player.vif + 1;
-        let audio = new Audio('../song/clochevif.mp3');
-        audio.play();
-        setTimeout(() => {
-          this.vifCollision();
-        }, 600);
-        
-      };
-      
-    
-    
-
-   
+  // fonction des vif d'or touché - Si harry touché, ne peut prendre de point
+  vifdorTouched: function () {
+    if (
+      harry.harrystraight == "harrytouched" ||
+      harry.harrydown == "harrydowntouched" ||
+      harry.harryup == "harryuptouched"
+    ) {
+      setTimeout(() => {
+        this.vifCollision();
+      }, 5000);
+    } else {
+      player.vif = player.vif + 1;
+      let audio = new Audio("../song/clochevif.mp3");
+      audio.play();
+      setTimeout(() => {
+        this.vifCollision();
+      }, 600);
+    }
   },
 
-  vifCollision: function(){
+  // toutes les 300 milliseconde on vérifie si vif d'or touché
+
+  vifCollision: function () {
     vifInterval = setInterval(() => {
       let harryPosition = harry.getElement.getBoundingClientRect();
       let harryx = parseInt(harryPosition.x);
-        let harryy = parseInt(harryPosition.y);
-        let harrywidth = parseInt(harryPosition.width);
-        let harryheight = parseInt(harryPosition.height);
-        let vifdorPosition = this.vifdorElement.getBoundingClientRect();
-        let vifdorX = parseInt(vifdorPosition.x);
-        let vifdorY = parseInt(vifdorPosition.y);
-        let vifdorHeight = parseInt(vifdorPosition.height);
-        let vifdorWidth = parseInt(vifdorPosition.width);
+      let harryy = parseInt(harryPosition.y);
+      let harrywidth = parseInt(harryPosition.width);
+      let harryheight = parseInt(harryPosition.height);
+      let vifdorPosition = this.vifdorElement.getBoundingClientRect();
+      let vifdorX = parseInt(vifdorPosition.x);
+      let vifdorY = parseInt(vifdorPosition.y);
+      let vifdorHeight = parseInt(vifdorPosition.height);
+      let vifdorWidth = parseInt(vifdorPosition.width);
 
-        if(harryx > vifdorX + vifdorWidth ||
-            harryx + harrywidth < vifdorX ||
-            harryy > vifdorY + vifdorHeight ||
-            harryy + harryheight < vifdorY) {
-
-            } else {
-              this.vifdorTouched();
-              console.log('touchervif');
-              clearInterval(vifInterval);
-            }
-    },300)
+      if (
+        harryx > vifdorX + vifdorWidth ||
+        harryx + harrywidth < vifdorX ||
+        harryy > vifdorY + vifdorHeight ||
+        harryy + harryheight < vifdorY
+      ) {
+      } else {
+        this.vifdorTouched();
+        console.log("touchervif");
+        clearInterval(vifInterval);
+      }
+    }, 300);
   },
-
-
-  
- 
 };
 
-
-
+//gestion des niveau et de la fin de partie
 let script = {
-
-setNextLevel: function() {
-  setInterval(() => {
-    if(player.vif == 6) {
-      window.location.href = "win.html";
-
-    } else{
-
-    }
-  },300);
-},
- 
-  looseGame: function() {
+  setNextLevel: function () {
     setInterval(() => {
-      if(player.life == '0'){
-        window.location.href = "loose.html";
-      } else {};
-      
-    }, 500);
-   
+      if (player.vif == 6) {
+        window.location.href = "win.html";
+      } else {
+      }
+    }, 300);
   },
 
+  looseGame: function () {
+    setInterval(() => {
+      if (player.life == "0") {
+        window.location.href = "loose.html";
+      } else {
+      }
+    }, 500);
+  },
 };
+
+setTimeout(() => {
+//** Déclaration des function */
 vifdor.vifbottom();
-  
 
+harry.harryFunctionKeydown();
+harry.harryFunctionKeyUp();
 
+// ici on gère l'interval qui vient vérifier que les cognards ne touche pas la /// div harry
 
+harry.harryCollision(150);
 
-  harry.harryFunctionKeydown();
-  harry.harryFunctionKeyUp();
-  
-  // ici on gère l'interval qui vient vérifier que les cognards ne touche pas la /// div harry
-  
-  harry.harryCollision(150);
-  
-  cognardObject.cognardAppear(500);
-  
-  
-  vifdor.vifCollision();
-  player.lifeView();
-  player.pointView();
-  
-  script.looseGame();
-  script.setNextLevel()
+cognardObject.cognardAppear(500);
 
- 
-// ici on gère les différentes class css pour le balais
+vifdor.vifCollision();
+player.lifeView();
+player.pointView();
+
+script.looseGame();
+script.setNextLevel();
+},2000);
+
 

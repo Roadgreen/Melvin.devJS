@@ -36,12 +36,28 @@ body {
     -o-transform: translate(-50,-50);
 }
 
-body a {
+.return {
     position: absolute;
     font-family: 'harry';
     text-decoration: none;
     font-size: 2em;
-    top: 10%;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50,-50);
+    -webkit-transform: translate(-50,-50);
+    -moz-transform: translate(-50,-50);
+    -ms-transform: translate(-50,-50);
+    -o-transform: translate(-50,-50);
+    
+   
+}
+
+.download {
+    position: absolute;
+    font-family: 'harry';
+    text-decoration: none;
+    font-size: 2em;
+    top: 140%;
     left: 50%;
     transform: translate(-50,-50);
     -webkit-transform: translate(-50,-50);

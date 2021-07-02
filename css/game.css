@@ -374,6 +374,7 @@ background-image: url('../img/harryballaisfall0.svg');
 
 @media all and (min-width: 1120px) and (max-width: 1800px) {
     .aStart {
+        z-index: 22;
         position: relative;
         left: 63%;
         right: 50%;
@@ -383,6 +384,7 @@ background-image: url('../img/harryballaisfall0.svg');
         cursor: pointer;
       }
       .start {
+          z-index: 22;
           width: 20%;
           cursor: pointer;
         
@@ -391,6 +393,7 @@ background-image: url('../img/harryballaisfall0.svg');
 }
 @media all  and (min-width: 1801px) {
     .aStart {
+        z-index: 22;
         position: relative;
         left: 63%;
         right: 50%;
@@ -400,6 +403,7 @@ background-image: url('../img/harryballaisfall0.svg');
         cursor: pointer;
       }
       .start {
+        z-index: 22;
           width: 10%;
           cursor: pointer;
         
@@ -408,6 +412,7 @@ background-image: url('../img/harryballaisfall0.svg');
 }
 @media all  and (max-width: 1119px) {
     .aStart {
+        z-index: 22;
         position: relative;
         left: 63%;
         right: 50%;
@@ -417,6 +422,7 @@ background-image: url('../img/harryballaisfall0.svg');
         cursor: pointer;
       }
       .start {
+        z-index: 22;
           width: 20%;
           cursor: pointer;
         

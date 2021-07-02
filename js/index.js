@@ -9,3 +9,9 @@ game.addEventListener("mouseover", function() {
 game.addEventListener("mouseout", function(){
     harry.className = "harryballais";
 });
+
+var resume = document.getElementById('resume');
+
+resume.addEventListener("click", () => {
+    window.location.href = "win.html";
+});
